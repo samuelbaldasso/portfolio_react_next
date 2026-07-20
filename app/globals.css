@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* light theme */
+  --bg: 248 250 252;
+  --surface: 255 255 255;
+  --edge: 226 232 240;
+  --body: 71 85 105;
+  --heading: 15 23 42;
+  --accent: 13 148 136;
+}
+
+.dark {
+  --bg: 10 15 26;
+  --surface: 17 24 39;
+  --edge: 30 41 59;
+  --body: 148 163 184;
+  --heading: 226 232 240;
+  --accent: 94 234 212;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-bg text-body antialiased;
+}
+
+::selection {
+  @apply bg-accent/25 text-heading;
+}
+
+/* Scroll reveal — opt-out via prefers-reduced-motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
