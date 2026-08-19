@@ -19,7 +19,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const storedLang = localStorage.getItem("lang");
-    if (storedLang === "pt" || storedLang === "en") setLang(storedLang);
+    if (storedLang === "pt" || storedLang === "en") {
+      setLang(storedLang);
+      document.documentElement.lang = storedLang === "pt" ? "pt-BR" : "en";
+    }
     if (localStorage.getItem("theme") === "light") setTheme("light");
   }, []);
 

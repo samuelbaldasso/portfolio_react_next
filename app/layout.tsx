@@ -34,6 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`dark ${inter.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <noscript>
+          <style>{`.reveal { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
       </head>
       <body className="font-sans">
         <Providers>{children}</Providers>
